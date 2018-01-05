@@ -256,6 +256,7 @@ static const CRPCCommand vRPCCommands[] =
     { "listsinceblock",         &listsinceblock,         false,     false,      true },
     { "dumpprivkey",            &dumpprivkey,            true,      false,      true },
     { "importprivkey",          &importprivkey,          false,     false,      true },
+	{ "importaddress", &importaddress, false, false, false },
     { "listunspent",            &listunspent,            false,     false,      true },
     { "getrawtransaction",      &getrawtransaction,      false,     false,      false },
     { "createrawtransaction",   &createrawtransaction,   false,     false,      false },
@@ -1200,6 +1201,7 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "sendalert"              && n > 4) ConvertTo<boost::int64_t>(params[4]);
     if (strMethod == "sendalert"              && n > 5) ConvertTo<boost::int64_t>(params[5]);
     if (strMethod == "sendalert"              && n > 6) ConvertTo<boost::int64_t>(params[6]);
+    if (strMethod == "importaddress" && n > 2) ConvertTo<bool>(params[2]);
 
     return params;
 }
